@@ -1,4 +1,4 @@
-# calculate
+# calculate App
 
 simple calculator based on flutter
 
