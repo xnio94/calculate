@@ -1,6 +1,6 @@
 # calculate
 
-simple calculator
+simple calculator based on flutter
 
 ## Getting Started
 
