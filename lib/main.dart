@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -22,13 +23,42 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+/*
+class MyButton extends RaisedButton {
+  MyButton(x, context)
+      : super(
+          child: Text(x),
+          color: Theme.of(context).accentColor,
+          //elevation: 4.0,
+          splashColor: Colors.blueGrey,
+          onPressed: () {},
+        );
+}
+
+*/
+
+class MyButton extends Tooltip {
+  MyButton(x, context)
+      : super(
+            message: x,
+            child: new RaisedButton(
+              child: Text(x),
+              color: Theme.of(context).accentColor,
+              splashColor: Colors.blueGrey,
+              onPressed: () {
+                print("anas");
+
+
+              },
+            ));
+}
+
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int NUM = 0;
+  String op;
 
   void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+    setState(() {});
   }
 
   @override
@@ -37,7 +67,56 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          new Row /*or Column*/ (
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              new Icon(Icons.star, size: 100.0),
+            ],
+          ),
+          new Row /*or Column*/ (
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              MyButton('1', context),
+              MyButton('2', context),
+              MyButton('3', context),
+              MyButton('+', context),
+            ],
+          ),
+          new Row /*or Column*/ (
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              MyButton('4', context),
+              MyButton('5', context),
+              MyButton('6', context),
+              MyButton('-', context)
+            ],
+          ),
+          new Row /*or Column*/ (
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              MyButton('7', context),
+              MyButton('8', context),
+              MyButton('9', context),
+              MyButton('*', context),
+            ],
+          ),
+          new Row /*or Column*/ (
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              MyButton('C', context),
+              MyButton('0', context),
+              MyButton('=', context),
+              MyButton('/', context),
+            ],
+          ),
+        ],
+      ),
+
+      /*
+      Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -51,6 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      */
     );
   }
 }
