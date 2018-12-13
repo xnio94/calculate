@@ -1,6 +1,6 @@
 # calculate
 
-A new Flutter project.
+simple calculator
 
 ## Getting Started
 
